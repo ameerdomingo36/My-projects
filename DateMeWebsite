@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Want to Be My Boyfriend?</title>
+    <style>
+        /* Body Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #fcb8d4, #ff4e50);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+        }
+        /* Heading Styling */
+        h1 {
+            font-size: 50px;
+            color: #ff1493;
+            margin-top: 30px;
+        }
+        /* Question Text */
+        .question {
+            font-size: 28px;
+            margin: 20px 0;
+            color: #ffebd2;
+        }
+        /* Buttons Styling */
+        .buttons {
+            margin-top: 30px;
+        }
+        button {
+            font-size: 22px;
+            padding: 15px 30px;
+            margin: 20px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        button.yes {
+            background-color: #ff69b4;
+            color: white;
+            font-weight: bold;
+        }
+        button.no {
+            background-color: #f44336;
+            color: white;
+            font-weight: bold;
+        }
+        button:hover {
+            transform: scale(1.1);
+        }
+        /* Fireworks Section */
+        #fireworks {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .firework-text {
+            color: white;
+            font-size: 50px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff1493;
+        }
+        .firework-animation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .firework {
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, red, orange, yellow);
+            border-radius: 50%;
+            margin: 10px;
+            animation: explode 1s infinite;
+        }
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .continue-button {
+            margin-top: 30px;
+            background-color: #ff1493;
+            color: white;
+            padding: 15px 30px;
+            font-size: 22px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        .continue-button:hover {
+            transform: scale(1.1);
+        }
+        /* Romantic Letter */
+        .letter {
+            font-size: 24px;
+            line-height: 1.8;
+            margin: 20px auto;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border: 2px solid #ffb6c1;
+            color: #333;
+            position: relative;
+            overflow: hidden;
+        }
+        .heart {
+            font-size: 50px;
+            color: #ff1493;
+        }
+        .signature {
+            font-size: 28px;
+            color: #ff69b4;
+            font-family: 'Roboto', sans-serif;
+            margin-top: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .emojis {
+            font-size: 40px;
+            margin-top: 20px;
+        }
+        .rose {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 50px;
+            height: 50px;
+            background: url('https://i.imgur.com/6mnUn2r.png') no-repeat center center;
+            background-size: contain;
+        }
+        /* Font Import */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400&display=swap');
+        
+        /* Cute Heart Animation */
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+                color: #ff69b4;
+            }
+            50% {
+                transform: scale(1.2);
+                color: #ff1493;
+            }
+            100% {
+                transform: scale(1);
+                color: #ff69b4;
+            }
+        }
+        .heart-pulse {
+            display: inline-block;
+            font-size: 100px;
+            animation: heartbeat 1s infinite;
+            color: #ff1493;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hidden Audio Player for Background Music -->
+    <audio autoplay loop style="display: none;">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Content Area -->
+    <div id="content">
+        <h1>❤️ To My Vampire ❤️</h1>
+        <div class="heart-pulse">❤️</div>
+        <div class="question" id="question">Do you like animals?</div>
+        <div class="buttons">
+            <button class="yes" onclick="nextQuestion()">Yes</button>
+            <button class="no" onclick="jumpAround()">No</button>
+        </div>
+    </div>
+
+    <!-- Fireworks Display -->
+    <div id="fireworks">
+        <div class="firework-text">🎉 Yay! You're my boyfriend! 🎉</div>
+        <div class="firework-animation">
+            <div class="firework"></div>
+            <div class="firework"></div>
+            <div class="firework"></div>
+            <div class="firework"></div>
+            <div class="firework"></div>
+        </div>
+        <button class="continue-button" onclick="goToLetter()">Continue</button>
+    </div>
+
+    <script>
+        const questions = [
+            "Do you like animals?",
+            "Do you like spending time outdoors?",
+            "Do you enjoy movies?",
+            "Do you like pizza?",
+            "Do you enjoy music?",
+            "Do you love milkshake?",
+            "Do you like traveling?",
+            "Do you like the stars?",
+            "Do you like me?????",
+            "Are you having fun?",
+            "would you do the honors in making me the happiest person on earth and be boyfriend?"
+        ];
+        let questionIndex = 0;
+
+        function nextQuestion() {
+            questionIndex++;
+            const questionElement = document.getElementById('question');
+            if (questionIndex < questions.length - 1) {
+                questionElement.textContent = questions[questionIndex];
+            } else if (questionIndex === questions.length - 1) {
+                questionElement.textContent = questions[questionIndex];
+                document.querySelector('.no').style.display = "inline-block";
+            } else {
+                showFireworks();
+            }
+        }
+
+        function jumpAround() {
+            const noButton = document.querySelector('.no');
+            noButton.style.position = "absolute";
+            noButton.style.left = `${Math.random() * (window.innerWidth - 100)}px`;
+            noButton.style.top = `${Math.random() * (window.innerHeight - 100)}px`;
+        }
+
+        function showFireworks() {
+            const fireworks = document.getElementById('fireworks');
+            fireworks.style.display = "flex";
+        }
+
+        function goToLetter() {
+            const newPage = `
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>My Letter to You</title>
+                <style>
+                    body {
+                        font-family: 'Poppins', sans-serif;
+                        text-align: center;
+                        padding: 20px;
+                        background: linear-gradient(135deg, #fcb8d4, #ff4e50);
+                        color: #fff;
+                    }
+                    h1 {
+                        font-size: 50px;
+                        color: #ff1493;
+                        margin-top: 30px;
+                    }
+                    .letter {
+                        font-size: 24px;
+                        line-height: 1.8;
+                        margin: 20px auto;
+                        max-width: 600px;
+                        background: rgba(255, 255, 255, 0.8);
+                        padding: 25px;
+                        border-radius: 20px;
+                        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+                        border: 2px solid #ffb6c1;
+                        color: #333;
+                        position: relative;
+                        overflow: hidden;
+                    }
+                    .heart {
+                        font-size: 50px;
+                        color: #ff1493;
+                    }
+                    .signature {
+                        font-size: 28px;
+                        color: #ff69b4;
+                        font-family: 'Roboto', sans-serif;
+                        margin-top: 30px;
+                        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+                    }
+                    .emojis {
+                        font-size: 40px;
+                        margin-top: 20px;
+                    }
+                </style>
+            </head>
+            <body>
+                <h1>My Letter to You</h1>
+                <div class="letter">
+                    <p>To my <span class="heart">❤️</span>Boyfriend Aiden,</p>
+                    <p>I just wanted to take a moment to tell you how much you mean to me. Spending time with you has been one of the most wonderful experiences ever, and every moment feels special when you're around.</p>
+                    <p>You're kind, all I could ask for, plus you're funny too, and have this amazing way of making me smile even on the hardest days. I admire so many things about you, from the way you carry yourself to the way you make the simplest things feel extraordinary.</p>
+                    <p>I know this might sound a little cheesy, but I feel like you lit a spark on a wet spot, and somehow you caused this inferno in me. You have no idea what you mean to me.</p>
+                    <p>Thank you for being you and for letting me into your life. I’m so excited about where this journey might take us, and I hope you feel the same way too.</p>
+                    <p class="emojis">🤭</p>
+                    <p>I LOVE you with all my heart,</p>
+                    <p class="signature">love your <span class="heart">❤️</span>Boyfriend Ameer</p>
+                </div>
+            </body>
+            </html>
+            `;
+            document.open();
+            document.write(newPage);
+            document.close();
+        }
+    </script>
