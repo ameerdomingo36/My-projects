@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Do You Want to Be My Boyfriend?</title>
+    <title>Do You Want to Be My partner?</title>
     <style>
         /* Body Styling */
         body {
@@ -186,7 +186,7 @@
 
     <!-- Content Area -->
     <div id="content">
-        <h1>❤️ To My Vampire ❤️</h1>
+        <h1>❤️ To My Special person ❤️</h1>
         <div class="heart-pulse">❤️</div>
         <div class="question" id="question">Do you like animals?</div>
         <div class="buttons">
@@ -197,7 +197,7 @@
 
     <!-- Fireworks Display -->
     <div id="fireworks">
-        <div class="firework-text">🎉 Yay! You're my boyfriend! 🎉</div>
+        <div class="firework-text">🎉 Yay! You are mine! 🎉</div>
         <div class="firework-animation">
             <div class="firework"></div>
             <div class="firework"></div>
